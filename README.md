@@ -144,7 +144,7 @@ var s = (
 isDotBracketFASTA(s); // true
 ```
 
-A name line may also be omitted
+The name line may also be omitted
 (so long as there is a dot-bracket line).
 
 ```javascript
@@ -170,7 +170,7 @@ Whitespace lines before and after a structure are allowed.
 
 ```javascript
 var s = (
-  '\n
+  '\n'
   + '  \n'
   + '\t\n'
   + '>Structure 1\n'
