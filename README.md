@@ -72,6 +72,23 @@ parsed.sequence; // "AAAGGGGAAAACCCCAAA"
 parsed.dotBracket; // "...((((....))))..."
 ```
 
+Dot-bracket notation may be a different length than the sequence.
+
+```javascript
+// sequence is longer than dot-bracket notation
+var s = (
+  '>Structure 1\n'
+  + 'AAAGGAAAACCCCAAA\n'
+  + '...((....))..'
+);
+
+var parsed = parseDotBracketFASTA(s);
+
+parsed.name; // "Structure 1"
+parsed.sequence; // "AAAGGAAAACCCCAAA"
+parsed.dotBracket; // "...((....)).."
+```
+
 Pseudoknot characters (e.g., `[ ]`, `{ }` and `< >`) are also allowed in dot-bracket notation.
 
 ```javascript
