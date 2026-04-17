@@ -133,8 +133,19 @@ var s = (
 isDotBracketFASTA(s); // true
 ```
 
-The inclusion of a name line is also optional
-(so long as there is a line of dot-bracket notation).
+The name may also be empty.
+
+```javascript
+var s = (
+  '>\n'
+  + 'AAAGGGGAAAACCCCAAA'
+);
+
+isDotBracketFASTA(s); // true
+```
+
+A name line may also be omitted
+(so long as there is a dot-bracket line).
 
 ```javascript
 var s = (
