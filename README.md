@@ -11,8 +11,8 @@ npm install @rnacanvas/dot-bracket
 All exports of this package can be accessed as named imports.
 
 ```javascript
-// an example import
-import { parseDotBracketFASTA } from '@rnacanvas/dot-bracket';
+// some example imports
+import { parseDotBracketFASTA, isDotBracketFASTA } from '@rnacanvas/dot-bracket';
 ```
 
 ## `function parseDotBracketFASTA()`
@@ -103,4 +103,53 @@ var parsed = parseDotBracketFASTA(s);
 parsed.name; // "Structure 1"
 parsed.sequence; // "AUGCAUGCAUGCAUGCA"
 parsed.dotBracket; // ".(.).[.].{.}.<.>."
+```
+
+## `function isDotBracketFASTA()`
+
+Returns `true` if a string is in dot-bracket FASTA format
+and `false` otherwise.
+
+```javascript
+var s = (
+  '>Structure 1\n'
+  + 'AAAGGGGAAAACCCCAAA\n'
+  + '...((((....))))...'
+);
+
+isDotBracketFASTA(s); // true
+```
+
+The inclusion of dot-bracket notation is optional
+(so long as there is a name line beginning with a `>` character).
+
+```javascript
+var s = (
+  '>Structure 1\n'
+  + 'AAAGGGGAAAACCCCAAA'
+);
+
+isDotBracketFASTA(s); // true
+```
+
+The inclusion of a name line is also optional
+(so long as there is a line of dot-bracket notation).
+
+```javascript
+var s = (
+  'AAAGGGGAAAACCCCAAA\n'
+  + '...((((....))))...'
+);
+
+isDotBracketFASTA(s); // true
+```
+
+However, a sequence by itself is not considered to comply with dot-bracket FASTA format.
+
+```javascript
+var s = (
+  'AAAGGGGAAAACCCCAAA'
+);
+
+isDotBracketFASTA(s); // false
 ```
