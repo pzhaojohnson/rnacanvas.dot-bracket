@@ -1,6 +1,6 @@
 {
   "name": "@rnacanvas/dot-bracket",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Work with dot-bracket notation",
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "webpack-cli": "^7.0.0"
   },
   "dependencies": {
+    "@rnacanvas/utilities": "^6.5.0",
     "jquery": "^4.0.0",
     "uuid": "^13.0.0"
   }
