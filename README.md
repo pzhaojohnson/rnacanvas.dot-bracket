@@ -111,6 +111,7 @@ Returns `true` if a string is in dot-bracket FASTA format
 and `false` otherwise.
 
 ```javascript
+// a hairpin structure
 var s = (
   '>Structure 1\n'
   + 'AAAGGGGAAAACCCCAAA\n'
@@ -153,3 +154,36 @@ var s = (
 
 isDotBracketFASTA(s); // false
 ```
+
+Whitespace lines before and after a structure are allowed.
+
+```javascript
+var s = (
+  '\n
+  + '  \n'
+  + '\t\n'
+  + '>Structure 1\n'
+  + 'AAAGGGGAAAACCCCAAA\n'
+  + '...((((....))))...\n'
+  + '\n'
+  + '  \n'
+  + '\t'
+);
+
+isDotBracketFASTA(s); // true
+```
+
+However, leading text content before a structure is not allowed.
+
+```javascript
+var s = (
+  'Extra text content.\n'
+  + '\n'
+  + '>Structure 1\n'
+  + 'AAAGGGGAAAACCCCAAA\n'
+  + '...((((....))))...'
+);
+
+isDotBracketFASTA(s); // false
+```
+
