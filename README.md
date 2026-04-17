@@ -38,7 +38,7 @@ parsed.dotBracket; // "...((((....))))..."
 All common newline encodings are supported
 (i.e., `\n`, `\r` and `\r\n`).
 
-The name line may also be omitted.
+The name line may be omitted.
 
 ```javascript
 var s = (
@@ -62,7 +62,7 @@ Any delta-G value trailing the dot-bracket notation will be omitted.
 var s = (
   '>Structure 1\n'
   + 'AAAGGGGAAAACCCCAAA\n'
-  + '...((((....))))... (-28.10)'
+  + '...((((....))))... (-6.90)'
 );
 
 var parsed = parseDotBracketFASTA(s);
@@ -72,18 +72,18 @@ parsed.sequence; // "AAAGGGGAAAACCCCAAA"
 parsed.dotBracket; // "...((((....))))..."
 ```
 
-Pseudoknot characters (e.g., `[]`, `{}` and `<>`) are also allowed in dot-bracket notation.
+Pseudoknot characters (e.g., `[ ]`, `{ }` and `< >`) are also allowed in dot-bracket notation.
 
 ```javascript
 var s = (
   '>Pseudoknots\n'
-  + 'AUGCAUGCAUGCAUGCAUGCAUGC\n'
-  + '.((.[[.{{.<<.)).]].}}.>>'
+  + 'AUGCAUGCAUGCAUGCA\n'
+  + '.(.).[.].{.}.<.>.'
 );
 
 var parsed = parseDotBracketFASTA(s);
 
 parsed.name; // "Structure 1"
-parsed.sequence; // "AUGCAUGCAUGCAUGCAUGCAUGC"
-parsed.dotBracket; // ".((.[[.{{.<<.)).]].}}.>>"
+parsed.sequence; // "AUGCAUGCAUGCAUGCA"
+parsed.dotBracket; // ".(.).[.].{.}.<.>."
 ```
