@@ -188,7 +188,7 @@ However, leading text content before a structure is not allowed.
 
 ```javascript
 var s = (
-  'Extra text content.\n'
+  'Leading text content.\n'
   + '\n'
   + '>Structure 1\n'
   + 'AAAGGGGAAAACCCCAAA\n'
