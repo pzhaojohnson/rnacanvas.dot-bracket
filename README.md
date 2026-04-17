@@ -133,7 +133,7 @@ var s = (
 isDotBracketFASTA(s); // true
 ```
 
-The name may also be empty.
+Empty names are also allowed.
 
 ```javascript
 var s = (
